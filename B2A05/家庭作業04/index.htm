@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+		<title>家庭作業05</title>
+	<style>
+        h3 {
+            color:red;
+        }
+        
+        p{
+            margin: 5px;
+        }
+        
+        div{
+            color: blue;
+        }
+        
+        table {
+            border-color: black;
+        }
+
+        tr {
+            text-align: left;
+        }
+        td {
+            vertical-align: middle;
+        }
+	</style>
+</head>
+  <body>
+   <script>
+      document.write("<p><h3>九九乘法表</h3></p>");
+      document.write('<table border="1" width="90%" cellspacing="0" cellpadding="0">');
+      function TimesTable(nine){
+        for(i=1; i<=nine; i++){
+              document.write("<tr>");
+              for(j=1; j<=nine; j++){
+              document.write("<td><div>" + j+"x"+i + "=" + j*i + " " + "</div></td>");
+          }
+        document.write("</tr>");
+          }
+        document.write("</table>");
+      }
+      TimesTable(9);
+       
+        </script>
+	</body>
+</html>
