@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+		<title>家庭作業05</title>
+	<style>
+        h4 {
+            color: red;
+        }
+
+        div {
+            color: blue;
+            margin: 5px;
+        }
+	</style>
+
+
+</head>
+    <body>
+        <form id= "form01">
+            姓名：<input type="text" name="name01" value="林大安"><br>
+            收件地址：<input type="text" name="address01" value="台北市中山區德惠街3巷3號"><br>
+            電話：<input type="tel" name="tel01" value="0988-603-401"><br>
+            電子郵件：<input type="email" name="email01" value="st993205@gmail.com"><br>
+            指定送貨日期：<input type="date" name="date01"><br>
+            商品名稱：<br><input type="radio" name="computer" id="computer01" value="ASUS S14 S433EQ-0098W1165G7 筆記型電腦(1台)">ASUS S14 S433EQ-0098W1165G7 筆記型電腦(1台) 35,900元<br>
+            <input type="radio" name="computer" id="computer02" value="DELL Inspiron 15-3501-D1728STW 筆記型電腦(1台)">DELL Inspiron 15-3501-D1728STW 筆記型電腦(1台) 25,999元<br>
+            <input type="radio" name="computer" id="computer03" value="HP 14s-dq1098TU 14吋輕薄窄邊筆記型電腦(1台)">HP 14s-dq1098TU 14吋輕薄窄邊筆記型電腦(1台) 22,999元<br>
+            <input type="radio" name="computer" id="computer04" value="LG Gram 15.6吋 10代窄邊極緻輕薄筆記型電腦(1台)">LG Gram 15.6吋10代窄邊極緻輕薄筆記型電腦(1台) 34,888元<br>
+            <input type="radio" name="computer" id="computer05" value="HP ENVY x360 13-ay0102AU 翻轉觸控筆記型電腦(1台)">HP ENVY x360 13-ay0102AU 翻轉觸控筆記型電腦(1台) 33,900元<br>
+        </form>
+        <button onclick="shoppingInfo()"><h4>結帳</h4></button>
+        <div id="demo"></div>
+        <script>
+            function shoppingInfo() {
+                var x = document.getElementById("form01");
+                var item = "";
+                var price = 0;
+                var text = "<h4>您的購物資訊如下:</h4>";
+                var i;
+                text += "<table border='1' width='90%' cellspacing='0' cellpadding='0'>";
+                for (i = 0; i < 5; i++) {
+                    switch (i) {
+                        case 0:
+                            item = "姓名: ";
+                            break;
+                        case 1:
+                            item = "收件地址: ";
+                            break;
+                        case 2:
+                            item = "電話: ";
+                            break;
+                        case 3:
+                            item = "電子郵件: ";
+                            break;
+                        case 4:
+                            item = "指定送貨日期: ";
+                            break;
+                    }
+                    text += "<td>" + item + "</td>" + "<td>" + x.elements[i].value +"</td>";
+                    text += "</tr>";
+                }
+                for (i=5; i<=9; i++) {
+                    if(x.elements[i].checked == true){
+                        switch(i){
+                            case 5: price=35900; break;
+                            case 6: price=25999; break;
+                            case 7: price=22999; break;
+                            case 8: price=34888; break;
+                            case 9: price=33900; break;  
+                        }
+                        text += "<tr><td>商品名稱: </td>" + "<td>" + x.elements[i].value + "</td></tr>";
+                        text += "<tr><td>價格合計: </td>" + "<td>" + price + "元</td><tr>";
+                    }
+                    text += "</tr>";
+                }
+                text += "</table>";
+                document.getElementById("demo").innerHTML = text;
+            }
+        </script>
+    </body>
+</html>
+
+            
+ 
+    
+
